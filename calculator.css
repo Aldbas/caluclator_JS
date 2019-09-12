@@ -6,75 +6,95 @@ body {
 }
 
 .calculator {
-    height: 500px;
-    width: 400px;
-    background-color: gray;
+    height: 520px;
+    width: 430px;
+    background: linear-gradient(to bottom, #666699 0%, #000066 100%);
     border-radius: 25px;
-    /*display: grid;*/
-    /*grid-template-columns: auto auto auto auto;*/
-    /*grid-gap: 0px; */
+    border: 5px solid;
+}
+
+
+.display {
+	text-align:left;
+    margin: 20px;
+    background-color: #99cc00;
+    height: 115px;
+    width: 380px;
+    border: 5px solid;
+    border-radius: 20px;
+}
+
+.display p {
+	padding: 30px 10px;
+	font-size: 20px;
 }
 
 .buttons {
     width: 350px;
-    border:  solid;
-    padding-top: 20px;
+    border-width: 10px;
+    border-radius: 10px;
+    grid-gap: 10px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 0fr 0fr 0fr 0fr;
+    grid-template-columns: repeat(4, auto);
     justify-content: center;
-
 }
 
-.display {
-    padding-top: 20px;
-    margin: 0 auto;
-    background-color: blue;
-    height: 60px;
-    width: 350px;
-    /*padding: px 0px;*/
-    border-radius: 10px;
-}
 
-.mainBtn {
-	/*border-radius: 5px;*/
-    background-color: #e7e7e7;
-    /*color: white;*/
+
+.digitBtn {
+    background-color: #999999;
+    color: white;
     border: none;
     text-align: center;
-    font-size: 24px;
-    height: 70px;
-    width: 80px;
+    font-size: 30px;
+    height: 60px;
+    width: 90px;
 
 }
 
-#multiplyBtn {
+#zeroBtn {
+    color: white;
+    background-color: #999999;
+    font-size: 24px;
+    border: none;
+    grid-row-start: 5;
+    grid-column-end: span 2;
+    width:190px;
+
+}
+
+#equalsBtn {
     grid-column-start: 4;
-    grid-row-start: 1;
+    grid-row-end: span 2;
+    color: white;
+    font-size: 30px;
+    background-color: #ff6600;
+    border: none;
+    height:140px;
+}
+
+.operatorBtn {
+	border: none;
+	font-size:30px;
+	color:white;
+	height: 60px;
+	width: 90px;
+    background-color: #4d4d4d;
 }
 
 #minusBtn {
     grid-column-start: 4;
     grid-row-start: 2;
+
 }
 
 #plusBtn {
     grid-column-start: 4;
     grid-row-start: 3;
-}
-
-
-#equalsBtn {
-    grid-column-start: 4;
-    grid-row-end: span 5;
-    background-color: #e7e7e7;
-    border: none;
 
 }
 
-#zeroBtn {
-    background-color: #e7e7e7;
-    border: none;
-    grid-row-start: 5;
-    grid-column-end: span 2;
-}
+
+
+
