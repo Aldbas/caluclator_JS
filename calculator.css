@@ -23,10 +23,16 @@ body {
     border: 5px solid;
     border-radius: 20px;
 }
+.display .historyExp {
+	font-size: 18px;
+	opacity: 0.5;
+	float:right;
+	padding-right: 20px; 
+}
 
-.display p {
+.display .currentExp {
 	padding: 30px 10px;
-	font-size: 20px;
+	font-size: 30px;
 }
 
 .buttons {
@@ -42,7 +48,7 @@ body {
 
 
 
-.digitBtn {
+button {
     background-color: #999999;
     color: white;
     border: none;
@@ -53,7 +59,12 @@ body {
 
 }
 
-#zeroBtn {
+.oprBtn {
+    background-color: #4d4d4d;
+}
+
+
+.zero {
     color: white;
     background-color: #999999;
     font-size: 24px;
@@ -64,36 +75,27 @@ body {
 
 }
 
-#equalsBtn {
+.equals {
     grid-column-start: 4;
     grid-row-end: span 2;
     color: white;
-    font-size: 30px;
     background-color: #ff6600;
     border: none;
-    height:140px;
+    height:130px;
 }
 
-.operatorBtn {
-	border: none;
-	font-size:30px;
-	color:white;
-	height: 60px;
-	width: 90px;
-    background-color: #4d4d4d;
-}
-
-#minusBtn {
+.minus {
     grid-column-start: 4;
     grid-row-start: 2;
 
 }
 
-#plusBtn {
+.plus {
     grid-column-start: 4;
     grid-row-start: 3;
 
 }
+
 
 
 
