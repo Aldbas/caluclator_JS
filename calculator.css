@@ -63,7 +63,13 @@ button {
     background-color: #4d4d4d;
 }
 
-
+.clear {
+    background-color: #4d4d4d;
+}
+.back{
+    background-color: #4d4d4d;
+    
+}
 .zero {
     color: white;
     background-color: #999999;
