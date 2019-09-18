@@ -1,22 +1,28 @@
-
+const history = document.querySelector('.display .historyExp');
+const display = document.querySelector('.display .currentExp');
 const backspaceBtn = document.querySelector('.back');
 
+const buttons = document.querySelectorAll('button');
+const numBtns = document.querySelectorAll('.numBtn');
+let operator = '';
+let num1 = '';
+let num2 = '';
 
-const add =  function addition(num1, num2) {
-	return (num1 + num2);
+const add = function addition(num1, num2) {
+    return (num1) + (num2);
 }
 
 const subtract = function subtraction(num1, num2) {
-	return (num1 - num2);
+    return (num1 - num2);
 }
 
-const multiply = function multiplication(num1 ,num2 ){
-	return (num1 * num2);
+const multiply = function multiplication(num1, num2) {
+    return (num1 * num2);
 }
 
-const divide = function division(num1,num2){
+const divide = function division(num1, num2) {
 
-	return (num1 / num2);
+    return (num1 / num2);
 }
 
 function operation(operator, a, b) {
@@ -36,40 +42,41 @@ function operation(operator, a, b) {
     }
 }
 
-const display = document.querySelector('.display .currentExp');
-const history = document.querySelector('.display .historyExp');
-// let dick = display.textContent = 'GEL240';
 
-const buttons = document.querySelectorAll('button');
-let operator = '';
-let num1 = '';
-let num2 = '';
 
-buttons.forEach(button => button.addEventListener('click', function(e){
-	let button = e.target;
-	if(display.textContent.length > 18)return; 
+buttons.forEach(button => button.addEventListener('click', function(e) {
+    let buttonClicked = e.target;
+    if (display.textContent.length > 18) return;
 
-	if(e.target.classList.contains('decimal')) {
-		inputDecimal(e.target.value);
-	}
-	else if (button.classList.contains('oprBtn')) {
-		history.textContent = display.textContent + button.value;
-		num1 = history.textContent.slice(0, -1);
-		display.textContent = '';
-		operator = button.value;
-	}
-	else if(e.target.classList.contains('equals')){
-		results = operation(operator, num1, display.textContent);
-		display.textContent = results;
-		history.textContent = '';
-	}	
-	
-	else {
-	num2 = display.textContent += button.value; 
+    if (buttonClicked.value == '.' && display.textContent.includes('.')) return;
 
-	} 
-	
-	
+    else if (buttonClicked.classList.contains('oprBtn')) {
+        history.textContent = display.textContent + buttonClicked.value;
+        num1 = parseInt(history.textContent.slice(0, -1));
+        display.textContent = '';
+        operator = buttonClicked.value;
+
+
+    } else if (buttonClicked.classList.contains('equals')) {
+
+        num2 = parseInt(display.textContent);
+        results = operation(operator, num1, num2);
+        if (results == 'Infinity') {
+            display.textContent = 'Error';
+            alert('who you fooling huh??');
+        } else {
+            display.textContent = results;
+
+        }
+        history.textContent = '';
+        numBtns.forEach(button => button.disabled = true);
+    } else {
+        display.textContent += buttonClicked.value;
+        numBtns.forEach(button => button.disabled = false);
+
+    }
+console.log(e.keyCode);
+
 }));
 
 
@@ -77,23 +84,20 @@ buttons.forEach(button => button.addEventListener('click', function(e){
 const equalBtn = document.getElementById('equals');
 const clearBtn = document.querySelector('.clear');
 
-clearBtn.addEventListener('click', clear); 
+clearBtn.addEventListener('click', clearInputs);
+backspaceBtn.addEventListener('click', back);
 
-backspaceBtn.addEventListener('click',back);
-
-function clear() {
-	display.textContent = '';
-	history.textContent = '';
+function clearInputs() {
+    display.textContent = '';
+    history.textContent = '';
 }
 
-function inputDecimal(dot) {
-  // If the `displayValue` does not contain a decimal point
-  if (!display.textContent.includes(dot)) {
-    // Append the decimal point
-    display.textContent += dot;
-  }
+function updateDisplay() {
+    display.textContent = '0';
+    history.textContent = '';
+
 }
 
 function back() {
-	display.textContent = display.textContent.slice(0,-1);
+    display.textContent = display.textContent.slice(0, -1);
 }
